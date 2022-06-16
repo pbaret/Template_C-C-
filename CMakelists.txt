@@ -1,0 +1,19 @@
+project(SandBox_functions)
+
+cmake_minimum_required(VERSION 3.13.0)
+
+add_subdirectory(cpp_foo_lib cpp_foo_lib)
+
+add_executable(sbx_func)
+
+target_sources(sbx_func PRIVATE 
+    src/main.c
+    src/c_functions.c
+)
+target_link_libraries(sbx_func PRIVATE cpp_foo_lib)
+target_include_directories(sbx_func PRIVATE 
+    inc/
+    cpp_foo_lib/inc
+)
+
+
